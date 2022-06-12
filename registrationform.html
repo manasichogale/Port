@@ -1,0 +1,224 @@
+<html>
+<head>
+<style>
+span{
+	color:red;
+}
+.abc{
+	width:800px;
+	margin:auto;
+}
+#main{
+	width:800px;
+	height:600px;
+	color:purple;
+	background:white;
+	align:center
+}
+#header{
+	width:800px;
+	height:100px;
+	color:blue;
+}
+#cont{
+width:800px;
+height:400px;
+}
+
+input,textarea,select{
+	background:pink;
+	font-family:Footlight MT Light;
+	font-size:20px;
+	padding:px;
+	color:red;
+}
+</style>
+<script>
+function fun(){
+	let fname=document.getElementById("fname").value;
+	let lname=document.getElementById("lname").value;
+	let num=document.getElementById("num").value;
+	let pw=document.getElementById("pw").value;
+	let rw=document.getElementById("rw").value;
+	let add=document.getElementById("add").value;
+	let town=document.getElementById("town").value;
+
+	if(fname==""){
+		
+		document.getElementById("umsg").innerHTML="Please Enter First Name";
+		return false;
+		}
+	else{
+		document.getElementById("umsg").innerHTML="";
+		}	
+	if(lname==""){
+		
+		document.getElementById("lmsg").innerHTML="Please Enter Last Name";
+		return false;
+		}
+	else{
+		document.getElementById("lmsg").innerHTML="";
+		}
+	if(num==""){
+		
+		document.getElementById("pmsg").innerHTML="Please Enter Mobile No";
+		return false;
+		}	
+	if(num.length<48 && num.length>58 ){	
+	
+		document.getElementById("pmsg").innerHTML="Please Enter valid no";
+		return false;
+		}
+	if(num.length!=10){	
+	
+		document.getElementById("pmsg").innerHTML="Please Enter 10 digit no";
+		return false;
+		}
+	else{
+		document.getElementById("pmsg").innerHTML="";
+		}	
+		
+	if(pw.length<5 || pw.length>10){	
+		document.getElementById("pwmsg").innerHTML="password length must be 5-10 char";
+		return false;
+		}
+		
+	let flag=0;
+	for(let i=0;i<pw.length;i++){
+	
+		if(pw.charCodeAt(i)>=65 && pw.charCodeAt(i)<=90){
+			flag=1;
+		}
+		
+	}
+	if(flag==0){
+		
+		document.getElementById("pwmsg").innerHTML="At least one Uppercase letter";
+		return false;
+		}
+	
+	
+	let flag1=0;
+	for(let i=0;i<pw.length;i++){
+	
+		if(pw.charCodeAt(i)>=33 && pw.charCodeAt(i)<=43 || pw.charCodeAt(i)==64){
+			flag1=1;
+		}
+		
+	}
+	if(flag1==0){
+		
+		document.getElementById("pwmsg").innerHTML="At least one special char";
+		return false;
+	}
+		
+	else{
+		document.getElementById("pwmsg").innerHTML="";
+		}
+	if(pw !=rw){
+		document.getElementById("rwmsg").innerHTML="Enter same password";
+		return false;
+	}
+	else{
+		document.getElementById("rwmsg").innerHTML="";
+		}
+		
+	if(add.length<10 || add.length>30){	
+		document.getElementById("addmsg").innerHTML="add length must be 10-30 char";
+		return false;
+		}	
+	else{
+		document.getElementById("addmsg").innerHTML="";
+		}
+		
+	if(town.length<2 || town.length>8){	
+		document.getElementById("tmsg").innerHTML="town length must be 2-8 char";
+		return false;
+		}	
+	else{
+		document.getElementById("tmsg").innerHTML="";
+		}	
+}
+
+	
+</script>
+</head>
+<body >
+<div class="abc">
+<div id="main" align="center" >
+		<h3>Register here</h3>
+		<div id="header">
+		<h1><i><b>USER REGISTRATION</h1>
+		<p>Fields marked<span>*</span>are required</p>
+		</div>
+		<div id="cont">
+		<form>
+		<fieldset>
+			<table >
+			<tr>
+			<td> <label> <i><b>First Name:<span>*</span> </label> </td>
+			<td> <input  type="text" name="fname" id="fname" size="50" ><span id="umsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Last Name:<span>*</span></label> </td>
+			<td> <input type="text" name="lname" id="lname"size="50" bgcolor="yellow" ><span id="lmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label> <i><b>Phone Number:<span>*</span> </label> </td>
+			<td> <input type="text" name="num" id="num"size="50"><span id="pmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Password:<span>*</span> </label> </td>
+			<td> <input type="password" name="pw" id="pw"size="50"><span id="pwmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Retype Password:<span>*</span> </label> </td>
+			<td> <input type="password" name="rw" id="rw"size="50"><span id="rwmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Gender </label><span>*</span></td>
+			<td> <select name="gender"> 
+			<option> Male </option> 
+			<option> Female </option> 
+			<option> Transgender </option> 
+			</select>  </td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Address<span>*</span></label> </td>
+			<td> <textarea name="add" id="add" size="50"> </textarea><span id="addmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> State </label><span>*</span></td>
+			<td> <select> <option> Maharashtra </option> 
+				  <option> Punjab </option>
+				  <option> Goa </option>
+				  <option> Kerela </option>
+				  </select> </td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Town</label></td>
+			<td> <input type="text" name="town" id="town"size="50"><span id="tmsg"></span></td>
+			</tr>
+			<tr>
+			<td> <label><i><b> Pincode<span>*</span> </label></td>
+			<td> <input type="text" name="pin" id="pin"size="50"><span id="pinmsg"></span></td>
+			</tr>
+			<tr>
+			<td><label><i><b>Upload photo<span>*</span></label></td>
+			<td><input type="file" name="f1"</td>
+			</tr>
+			<tr>
+			<td><input type="submit" value="Register" onclick="return fun()"></td>
+			</tr>
+
+			</table>
+		</fieldset>
+		</form>	
+		</div>
+		
+		
+</div>
+</div>
+
+</body>
+</html>
